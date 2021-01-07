@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Header() {
+const Header = () => {
   const classes = useStyles();
   const [drawer, setDrawer] = React.useState(false)
 
