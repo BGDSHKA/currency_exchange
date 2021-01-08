@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CardComponent from './Card/Card'
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import { coinsAPI } from '../../api/api';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -11,30 +10,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-
-
-const Hero = () => {
+const Hero = (props) => {
     const classes = useStyles();
-    const [coins, setCoins] = useState('')
-
-    useEffect(() => {
-        coinsAPI.getCoins().then((data) => {
-            setCoins(data);
-        })
-    });
 
     let marketElements = null;
-    if (coins !== '') {
-         marketElements = coins.map((m, index) => <Grid item xs={3}><CardComponent key={m.id} currentPrice={m.current_price}
-          number={index} name={m.name} symbol={m.symbol} /></Grid>);
+    if (props.coins !== '') {
+         marketElements = props.coins.map((m, index) => <Grid key={m.id} 
+         item xs={6} sm={3} ><CardComponent  currentPrice={m.current_price}
+          number={index} name={m.name} symbol={m.symbol} id={m.id} /></Grid>);
     }
 
     return (
         <div className={classes.root}>
             <Grid container spacing={0}>
-
-                    {marketElements}
-                
+                    {marketElements} 
             </Grid>
 
         </div>
