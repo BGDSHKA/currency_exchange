@@ -22,7 +22,7 @@ const Exchange = (props) => {
     return (
         <div>
             <form noValidate autoComplete="off">
-                <TextField ref={fiatElement} margin="normal" onChange={handleChangeFiat} label="USD" variant="outlined" value={target ? fiat : coin*props.coin.current_price} />
+                <TextField ref={fiatElement} margin="normal" onChange={handleChangeFiat} label="USD" variant="outlined" value={ target ? fiat : coin*props.coin.current_price} />
                 <span> </span>
                 <TextField ref={coinElement} margin="normal" onChange={handleChangeCoin} label={props.coin.name} variant="outlined" value={ target ? fiat*1/props.coin.current_price : coin} />
             </form>

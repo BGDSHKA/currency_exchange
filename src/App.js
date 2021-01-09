@@ -14,7 +14,6 @@ function App() {
     coinsAPI.getCoins().then((data) => {
         setCoins(data);
     })
-    return 
 }, []);
 
 if (!coins) {
