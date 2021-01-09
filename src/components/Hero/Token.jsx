@@ -46,7 +46,7 @@ const Token = (props) => {
                         </Paper>
                     </Grid>
 
-                    <Grid item xs={12}>
+                    <Grid item xs={3}>
                         <Paper className={classes.paper}>
                             <Exchange coin={coin} />
                         </Paper>
