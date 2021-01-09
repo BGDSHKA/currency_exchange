@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState, useCallback} from 'react'
+import {useHistory} from 'react-router-dom';
 import { makeStyles, fade } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    cursor: 'pointer',
   },
   search: {
     position: 'relative',
@@ -63,7 +65,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
   const classes = useStyles();
-  const [drawer, setDrawer] = React.useState(false)
+  const [drawer, setDrawer] = useState(false)
+  const history = useHistory();
+  const handleOnClick = useCallback(() => history.push('/'), [history]);
 
   return (
      <div className={classes.root}>
@@ -72,7 +76,7 @@ const Header = () => {
           <IconButton onClick={() => {setDrawer(true)}} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography onClick={handleOnClick} variant="h6" className={classes.title}>
             Currency Exchange
           </Typography>
           <div className={classes.search}>
