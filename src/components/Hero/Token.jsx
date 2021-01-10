@@ -30,10 +30,10 @@ const useStyles = makeStyles((theme) => ({
 const Token = (props) => {
 
     const classes = useStyles();
-    let coin = props.coins.find( coin => coin.id === props.match.params.Id)
+    const [prices, setPrices] = useState([])
+    const [marketCaps, setMarketCaps] = useState([])
 
-    const [prices, setPrices] = useState('')
-    const [marketCaps, setMarketCaps] = useState('')
+    let coin = props.coins.find( coin => coin.id === props.match.params.Id)
   
     useEffect(() => {
       coinsAPI.getHistory(props.match.params.Id).then((data) => {

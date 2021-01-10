@@ -18,9 +18,9 @@ const Currency = (props) => {
    
     return (
         <div>
-            <img className={classes.img} src={props.coin.image}></img><h3>{props.coin.name}</h3>
+            <img className={classes.img} src={props.coin.image} alt={props.coin.id} ></img><h3>{props.coin.name}</h3>
             <Typography component="p" variant="h4">
-            ${props.coin.current_price} {console.log(props.coin)}
+            ${props.coin.current_price}
       </Typography>
             <Typography color="textSecondary" className={classes.depositContext}>
                 Market Cap ${props.coin.market_cap}
