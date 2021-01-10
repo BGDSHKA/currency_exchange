@@ -6,9 +6,6 @@ const Exchange = (props) => {
     const [coin, setCoin] = useState('')
     const [target, setTarget] = useState(null)
 
-    let fiatElement = React.createRef();
-    let coinElement = React.createRef();
-
     const handleChangeFiat = (e) => {
         setTarget(true)
         setFiat(e.target.value)
@@ -22,9 +19,10 @@ const Exchange = (props) => {
     return (
         <div>
             <form noValidate autoComplete="off">
-                <TextField ref={fiatElement} margin="normal" onChange={handleChangeFiat} label="USD" variant="outlined" value={ target ? fiat : coin*props.coin.current_price} />
+                <h2>Convert</h2>
+                <TextField margin="normal" onChange={handleChangeFiat} label="USD" variant="outlined" value={ target ? fiat : coin*props.coin.current_price} />
                 <span> </span>
-                <TextField ref={coinElement} margin="normal" onChange={handleChangeCoin} label={props.coin.name} variant="outlined" value={ target ? fiat*1/props.coin.current_price : coin} />
+                <TextField margin="normal" onChange={handleChangeCoin} label={props.coin.name} variant="outlined" value={ target ? fiat*1/props.coin.current_price : coin} />
             </form>
         </div>
     )

@@ -1,28 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer, Tooltip } from 'recharts';
-import { coinsAPI } from '../../api/api';
-import { withRouter } from 'react-router-dom';
 
 
 const Chart = (props) => {
-  const theme = useTheme();
-  const [data, setData] = useState('')
 
-  useEffect(() => {
-    coinsAPI.getHistory(props.match.params.Id).then((data) => {
-      for (var i = 0; i < data.prices.length; i++) {
-        var temp = new Date(data.prices[i][0])
-        data.prices[i][0] = temp.toLocaleDateString('en-US')
-      }
-        setData(data.prices.map(([time, amount]) => ({time, amount})));
-    })
-}, []);
+  const theme = useTheme();
 
   return (
       <ResponsiveContainer>
         <LineChart
-          data={data}
+          data={props.data}
           margin={{
             top: 16,
             right: 50,
@@ -37,14 +25,14 @@ const Chart = (props) => {
               position="left"
               style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
             >
-              Price ($)
+             {props.name} ($)
             </Label>
           </YAxis>
           <Tooltip isAnimationActive={false} />
-          <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+          <Line type="monotone" dataKey={props.name} stroke={theme.palette.primary.main} dot={false} />
         </LineChart>
       </ResponsiveContainer>
   );
 }
 
-export default withRouter(Chart)
+export default Chart
