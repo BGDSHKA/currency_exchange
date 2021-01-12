@@ -46,9 +46,10 @@ const Token = (props) => {
           setPrices(data.prices.map(([time, Price]) => ({time, Price})));
           setMarketCaps(data.market_caps.map(([time, Cap]) => ({time, Cap})));
       })
-  }, []);
+  }, [props.match.params.Id]);
 
-  if (!prices && !marketCaps) {
+  if (prices.length === 0 && marketCaps.length === 0) {
+      debugger
     return <LinearProgress />
   }
 
