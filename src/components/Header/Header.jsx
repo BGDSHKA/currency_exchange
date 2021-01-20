@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import DrawerComponent from './DrawerComponent';
+import LoginModal from '../Modal/LoginModal';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,6 +69,15 @@ const Header = () => {
   const [drawer, setDrawer] = useState(false)
   const history = useHistory();
   const handleOnClick = useCallback(() => history.push('/'), [history]);
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
      <div className={classes.root}>
@@ -92,10 +102,11 @@ const Header = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" onClick={handleOpen}>Login</Button>
         </Toolbar>
       </AppBar>
       <DrawerComponent drawer={drawer} setDrawer={setDrawer}/>
+      <LoginModal open={open} handleClose={handleClose} />
     </div>
   );
 }
