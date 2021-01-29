@@ -7,6 +7,7 @@ import Chart from './Chart';
 import Exchange from './Exchange';
 import { withRouter } from 'react-router-dom';
 import { coinsAPI } from '../../api/api';
+import Bottom from '../Bottom/Bottom'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -54,7 +55,7 @@ const Token = (props) => {
   }
 
     return (
-        <div>
+        <>
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={4} lg={3}>
@@ -83,7 +84,8 @@ const Token = (props) => {
 
                 </Grid>
             </Container>
-        </div>
+            <Bottom />
+        </>
     )
 }
 
