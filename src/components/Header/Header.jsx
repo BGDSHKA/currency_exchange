@@ -102,7 +102,7 @@ const Header = () => {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
-          <Button color="inherit" onClick={handleOpen}>Login</Button>
+          <Button color="inherit" onClick={handleOpen}>Sign in</Button>
         </Toolbar>
       </AppBar>
       <DrawerComponent drawer={drawer} setDrawer={setDrawer}/>
