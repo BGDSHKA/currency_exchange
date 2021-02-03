@@ -8,6 +8,7 @@ import Exchange from './Exchange';
 import { withRouter } from 'react-router-dom';
 import { coinsAPI } from '../../api/api';
 import Bottom from '../Bottom/Bottom'
+import Transactions from './Transactions';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -81,6 +82,10 @@ const Token = (props) => {
                             <Exchange coin={coin} />
                         </Paper>
                     </Grid>
+
+                  
+                           <Transactions />
+                     
 
                 </Grid>
             </Container>
