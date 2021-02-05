@@ -71,22 +71,19 @@ const Token = (props) => {
                         </Paper>
                     </Grid>
 
-                    <Grid item xs={12} md={8} lg={9}>
-                        <Paper className={clsx(classes.paper, classes.fixedHeight)}>
-                            <Chart data={marketCaps} name="Cap"/>
-                        </Paper>
-                    </Grid>
-
                     <Grid item xs={12} md={4} lg={3}>
                         <Paper className={clsx(classes.paper, classes.fixedHeight)} >
                             <Exchange coin={coin} />
                         </Paper>
                     </Grid>
 
-                  
+                    <Grid item xs={12} md={8} lg={9}>
+                        <Paper className={clsx(classes.paper, classes.fixedHeight)}>
+                            <Chart data={marketCaps} name="Cap"/>
+                        </Paper>
+                    </Grid>                  
                            <Transactions />
                      
-
                 </Grid>
             </Container>
             <Bottom />
