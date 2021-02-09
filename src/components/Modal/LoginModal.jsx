@@ -30,7 +30,11 @@ export default function LoginModal(props) {
 
   return (
     <>
-      <Dialog open={props.open} onClose={props.handleClose} aria-labelledby="form-dialog-title">
+      <Dialog 
+      disableScrollLock={true}
+      open={props.open} 
+      onClose={props.handleClose} 
+      aria-labelledby="form-dialog-title">
           <SignIn />
       </Dialog>
     </>
