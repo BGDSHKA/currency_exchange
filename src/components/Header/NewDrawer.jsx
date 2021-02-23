@@ -48,7 +48,7 @@ export default function NestedList() {
             <ListItemIcon>
               <StarBorder />
             </ListItemIcon>
-            <ListItemText primary="Название" />
+            <ListItemText primary="Test" />
           </ListItem>
         </List>
       </Collapse>
